@@ -1,10 +1,23 @@
 import React from 'react';
+import {useState} from 'react';
 
-function ProductRow({ products }) {
+function ProductRow({products2DB}) {
+ /*  const [onlyStocked, setonlyStocked] = useState(products2);
+
+    const showStocked = () => {
+        if (checkBox) {
+            onlyStocked.filter(el => el.stocked)
+        }
+        setonlyStocked(onlyStocked)
+    }*/
+
+
+
   return (
     <div>
-      {products.map((el) => {
+      {products2DB.map((el) => {
         return (
+
           <div className="productRow">
             {el.stocked ? (
               <p className="productElement">{el.name}</p>
@@ -15,28 +28,6 @@ function ProductRow({ products }) {
           </div>
         );
       })}
-
-     <table>
-         <tr>
-             <th>Name</th>
-             <th>Price</th>
-         </tr>
-         
-         {products.map((el) => {
-        return (
-          <tr>
-            {el.stocked ? (
-              <td className="productElement">{el.name}</td>
-            ) : (
-              <td className="red">{el.name}</td>
-            )}
-            <td className="productElement">{el.price}</td>
-          </tr>
-        );
-      })}
-
-         
-     </table>
 
     </div>
   );
