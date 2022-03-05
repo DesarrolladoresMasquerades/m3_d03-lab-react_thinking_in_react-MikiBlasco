@@ -23,7 +23,7 @@
   align-items: center;
   border: 1px solid rgb(2, 2, 2);
   height: 30px;
-  margin: 5px;  
+  margin: 2px;  
 }
 
 .productElement{
@@ -45,6 +45,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px;
   text-align: center;
 }
