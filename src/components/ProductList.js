@@ -3,7 +3,7 @@ import ProductRow from './Product';
 
 function ProductList({ products }) {
   return (
-    <div>
+    <div className='productTable'>
       <ProductRow products={products} />
     </div>
   );
