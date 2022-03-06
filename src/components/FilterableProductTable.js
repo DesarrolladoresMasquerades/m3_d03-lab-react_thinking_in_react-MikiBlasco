@@ -5,28 +5,29 @@ import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
   const [products2, setproducts] = useState(products);
-  const [products2DB, setproductsDB] = useState(products);
-  const [checkBox, setcheckBox] = useState(false);
+  const [productsF, setproductsF] = useState(products2);
+  const [check, setcheck] = useState(false);
   const [search, setsearch] = useState('');
 
   const handleSearch = (event) => {
-    setsearch(event.target.value);
-    filterResults(search);
-    console.log('search', search);
-  };
+    const query = event.target.value;
 
-  const filterResults = () => {
-    let searchResult = products2DB.filter((el) => {
-      return el.name.toLowerCase().includes(search);
-    });
-    setproductsDB(searchResult);
-    console.log('search', search);
-    console.log('searchResult', searchResult);
-    console.log('products2DB:', products2DB);
+    const searchRestults = products2.filter((el) =>
+      el.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setproductsF(searchRestults);
+    setsearch(query);
   };
 
   const handleCheck = (event) => {
-    setcheckBox(!checkBox);
+    if(!check){ 
+      const searchResults = products2.filter(el=>(el.stocked))
+      setproductsF(searchResults)  
+      setcheck(!check)
+    } else if (check){
+      setproductsF(products2)
+      setcheck(!check)
+    }    
   };
 
   return (
@@ -35,9 +36,9 @@ function FilterableProductTable({ products }) {
         handleSearch={handleSearch}
         handleCheck={handleCheck}
         search={search}
-        checkBox={checkBox}
+        check={check}
       />
-      <ProductList products2DB={products2DB} checkBox={checkBox} />
+      <ProductList productsF={productsF} />
     </div>
   );
 }

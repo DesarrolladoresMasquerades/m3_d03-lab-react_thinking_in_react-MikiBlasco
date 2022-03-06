@@ -1,7 +1,6 @@
 import React from 'react';
-import {useState} from 'react'
 
-function Search({handleSearch, handleCheck, search, checkBox}) {
+function Search({handleSearch, handleCheck, search, check}) {
 
 
   return (
@@ -14,7 +13,7 @@ function Search({handleSearch, handleCheck, search, checkBox}) {
       <br />
       <form className="checkBox">
         <label>Display only products on stock   </label>
-        <input type="checkbox" name="stocked" onChange={handleCheck} checkBox={checkBox}  />
+        <input type="checkbox" name="stocked" onChange={handleCheck} check={check}  />
       </form>
     </div>
   );

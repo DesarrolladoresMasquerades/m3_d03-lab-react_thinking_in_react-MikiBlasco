@@ -1,13 +1,16 @@
 import React from 'react';
 import ProductRow from './Product';
 
-function ProductList({ products2DB }) {
-       
+function ProductList({ productsF }) {
 
   return (
-    <div className='productTable'>
-      <ProductRow products2DB={products2DB}/>
+
+    <div className="productTable">
+      {productsF.map((el) => (
+        <ProductRow product={el} key={el.id}/>
+      ))}
     </div>
+
   );
 }
 
