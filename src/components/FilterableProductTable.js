@@ -20,8 +20,9 @@ function FilterableProductTable({ products }) {
   };
 
   const handleCheck = (event) => {
+
     if(!check){ 
-      const searchResults = products2.filter(el=>(el.stocked))
+      const searchResults = products2.filter(el=>el.stocked)
       setproductsF(searchResults)  
       setcheck(!check)
     } else if (check){
